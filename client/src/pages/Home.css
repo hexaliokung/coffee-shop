@@ -1,0 +1,213 @@
+/* =============================
+   Global Layout
+============================= */
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background-color: #fffaf5;
+  color: #2c3e50;
+}
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =============================
+   Hero Section
+============================= */
+.hero-section {
+  height: 85vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+              url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 1.5rem;
+}
+
+.hero-content {
+  max-width: 900px;
+  padding: 2rem;
+  backdrop-filter: blur(3px);
+}
+
+.hero-content h1 {
+  font-size: 3.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+  margin-bottom: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  background: linear-gradient(to right, #f39c12, #e67e22);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* =============================
+   Features Section
+============================= */
+.features-section {
+  padding: 5rem 2rem;
+  background-color: #fcf7f0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #e67e22;
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.feature-card p {
+  color: #7f8c8d;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* =============================
+   About Preview
+============================= */
+.about-preview {
+  padding: 4rem 2rem;
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.about-content h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-content p {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.learn-more-btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background-color: white;
+  color: #2c3e50;
+}
+
+/* =============================
+   Opening Hours
+============================= */
+.opening-hours {
+  padding: 4rem 2rem;
+  background-color: #fdfaf6;
+  text-align: center;
+}
+
+.opening-hours h2 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.hours-grid {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.hours-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hours-item .day {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.hours-item .time {
+  color: #e67e22;
+  font-weight: 500;
+}
+
+/* =============================
+   Responsive Tweaks
+============================= */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  .features-section,
+  .about-preview,
+  .opening-hours {
+    padding: 2rem 1.5rem;
+  }
+}
