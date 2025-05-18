@@ -3,6 +3,7 @@ import useCartStore from '../../store/cartStore'
 import { useNavigate } from 'react-router-dom'
 import './Cart.css'
 import axios from 'axios'
+import useCoffeeShopStore from '../../store/coffee-shop';
 
 const Cart = () => {
   const navigate = useNavigate()
@@ -11,6 +12,8 @@ const Cart = () => {
   const updateQuantity = useCartStore((state) => state.updateQuantity)
   const clearCart = useCartStore((state) => state.clearCart)
   const getTotal = useCartStore((state) => state.getTotal)
+
+  const token = useCoffeeShopStore((state) => state.token);
 
   const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
@@ -34,7 +37,7 @@ const Cart = () => {
       }, {
         headers: {
           'Content-Type': 'application/json',
-          // หากมี auth token ก็ใส่เพิ่มที่นี่
+          'Authorization': `Bearer ${token}`,
         }
       })
   

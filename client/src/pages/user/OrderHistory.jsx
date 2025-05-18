@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import useCoffeeShopStore from '../../store/coffee-shop';
 import './OrderHistory.css';
 
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  // แนบโทเคน
+  const token = useCoffeeShopStore((state) => state.token); //
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -15,6 +19,7 @@ const OrderHistory = () => {
         const response = await axios.get('http://localhost:5001/api/orders/history', {
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
           },
         });
         setOrders(response.data);
@@ -25,9 +30,13 @@ const OrderHistory = () => {
         setLoading(false);
       }
     };
-
-    fetchOrders();
-  }, []);
+    if (token) { // ✅ ตรวจว่า token มีจริงก่อน fetch
+      fetchOrders();
+    } else {
+      setError('ยังไม่ได้เข้าสู่ระบบ');
+      setLoading(false);
+    }
+  }, [token]);
 
   const formatDate = (dateString) => {
     const options = { 

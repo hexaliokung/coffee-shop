@@ -2,19 +2,21 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const router = express.Router(); // ✅ ต้องมีก่อนใช้ router.post
+const authenticateToken = require('../middlewares/authMiddleware'); // import middleware
+const router = express.Router();
 
-router.post('/orders', async (req, res) => {
+// 🔒 ป้องกันด้วย middleware
+router.post('/orders', authenticateToken, async (req, res) => {
   try {
     const { items, total, status } = req.body;
-    const userId = 1; // สมมติยังไม่มีระบบ login
+    const userId = req.user.id; // ได้ userId จริงจาก token แล้ว
 
     const order = await prisma.order.create({
       data: {
         userId,
         total,
         status,
-        items, // เก็บเป็น JSON
+        items, // สมมติเป็น JSON หรือ array
       },
     });
 
@@ -25,21 +27,20 @@ router.post('/orders', async (req, res) => {
   }
 });
 
-router.get('/orders/history', async (req, res) => {
-    try {
-      const userId = req.user.id; // Get user ID from authenticated request
-  
-      const orders = await prisma.order.findMany({
-        where: { userId },
-        orderBy: { createdAt: 'desc' }
-      });
-  
-      res.json(orders);
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: 'ไม่สามารถโหลดประวัติการสั่งซื้อได้' });
-    }
-  });
+router.get('/orders/history', authenticateToken, async (req, res) => {
+  try {
+    const userId = req.user.id;
 
+    const orders = await prisma.order.findMany({
+      where: { userId },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    res.json(orders);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'ไม่สามารถโหลดประวัติการสั่งซื้อได้' });
+  }
+});
 
 module.exports = router;
