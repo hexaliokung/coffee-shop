@@ -13,20 +13,22 @@ Frontend สำหรับระบบร้านกาแฟออนไล�
 - Styled Components 6.1.18
 
 ## Project Structure
-client/  
-├── src/  
-│ ├── assets/ # รูปภาพ, icons และไฟล์ static อื่นๆ  
-│ ├── components/ # Reusable components  
-│ ├── layouts/ # Layout components  
-│ ├── pages/ # หน้าเว็บต่างๆ  
-│ │ ├── admin/ # หน้าสำหรับ admin  
-│ │ ├── auth/ # หน้า login/register  
-│ │ └── user/ # หน้าสำหรับผู้ใช้ทั่วไป  
-│ ├── routes/ # การกำหนดเส้นทาง  
-│ ├── store/ # State management (Zustand)  
-│ ├── styles/ # Global styles  
-│ ├── App.jsx # Root component  
-│ └── main.jsx # Entry point  
+```
+client/
+├── src/
+│ ├── assets/ # รูปภาพ, icons และไฟล์ static อื่นๆ
+│ ├── components/ # Reusable components
+│ ├── layouts/ # Layout components
+│ ├── pages/ # หน้าเว็บต่างๆ
+│ │ ├── admin/ # หน้าสำหรับ admin
+│ │ ├── auth/ # หน้า login/register
+│ │ └── user/ # หน้าสำหรับผู้ใช้ทั่วไป
+│ ├── routes/ # การกำหนดเส้นทาง
+│ ├── store/ # State management (Zustand)
+│ ├── styles/ # Global styles
+│ ├── App.jsx # Root component
+│ └── main.jsx # Entry point
+```
 
 ## State Management
 ใช้ Zustand สำหรับจัดการ state หลักๆ 2 ส่วน:
