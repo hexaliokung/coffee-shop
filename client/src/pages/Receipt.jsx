@@ -55,7 +55,6 @@ const Receipt = () => {
           </div>
           <div className="receipt-info">
             <p className="date">วันที่: {currentDate}</p>
-            <p className="receipt-number">เลขที่: {receiptNumber}</p>
             <p className="order-id">คำสั่งซื้อ: #{orderData.id}</p>
           </div>
         </div>

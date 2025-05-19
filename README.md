@@ -9,10 +9,11 @@ Frontend สำหรับระบบร้านกาแฟออนไล�
 - Zustand (State Management)
 - React Router DOM 7.6.0
 - Axios
-- TailwindCSS 4.1.7
-- Styled Components 6.1.18
+- TailwindCSS 4.1.7 // ใช้ในบางหน้า
+- Styled Components 6.1.18 // ใช้ในบางหน้า
 
 ## Project Structure
+```
 client/
 ├── src/
 │ ├── assets/ # รูปภาพ, icons และไฟล์ static อื่นๆ
@@ -24,9 +25,9 @@ client/
 │ │ └── user/ # หน้าสำหรับผู้ใช้ทั่วไป
 │ ├── routes/ # การกำหนดเส้นทาง
 │ ├── store/ # State management (Zustand)
-│ ├── styles/ # Global styles
 │ ├── App.jsx # Root component
 │ └── main.jsx # Entry point
+```
 
 ## State Management
 ใช้ Zustand สำหรับจัดการ state หลักๆ 2 ส่วน:
@@ -170,16 +171,3 @@ npm audit
 - Basic features implementation
 - Admin dashboard
 - Order management
-
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
