@@ -9,8 +9,8 @@ Frontend สำหรับระบบร้านกาแฟออนไล�
 - Zustand (State Management)
 - React Router DOM 7.6.0
 - Axios
-- TailwindCSS 4.1.7
-- Styled Components 6.1.18
+- TailwindCSS 4.1.7 // ใช้ในบางหน้า
+- Styled Components 6.1.18 // ใช้ในบางหน้า
 
 ## Project Structure
 ```
@@ -25,7 +25,6 @@ client/
 │ │ └── user/ # หน้าสำหรับผู้ใช้ทั่วไป
 │ ├── routes/ # การกำหนดเส้นทาง
 │ ├── store/ # State management (Zustand)
-│ ├── styles/ # Global styles
 │ ├── App.jsx # Root component
 │ └── main.jsx # Entry point
 ```
@@ -85,95 +84,6 @@ Base URL: `http://localhost:5001/api`
 - `/products` - จัดการสินค้า
 - `/orders` - จัดการคำสั่งซื้อ
 - `/users` - จัดการผู้ใช้
-
-## Getting Started
-
-### 1. ติดตั้ง dependencies
-```bash
-npm install
-```
-
-### 2. รัน development server
-```bash
-npm run dev
-```
-
-### 3. Build สำหรับ production
-```bash
-npm run build
-```
-
-## Environment Variables
-สร้างไฟล์ `.env` ในโฟลเดอร์ client:
-```env
-VITE_API_URL=http://localhost:5001/api
-```
-
-## Development Guidelines
-
-### 1. Code Style
-- ใช้ ESLint สำหรับ linting
-- ใช้ Prettier สำหรับ code formatting
-
-### 2. Component Structure
-- ใช้ Functional Components
-- ใช้ Hooks สำหรับ state management
-- แยก CSS ไปอยู่ในไฟล์แยก
-
-### 3. State Management
-- ใช้ Zustand สำหรับ global state
-- ใช้ local state สำหรับ component-specific state
-
-### 4. Error Handling
-- ใช้ try-catch สำหรับ async operations
-- แสดง error messages ด้วย react-toastify
-
-### 5. Performance
-- ใช้ React.memo สำหรับ components ที่ re-render บ่อย
-- ใช้ useMemo และ useCallback เมื่อจำเป็น
-
-## Deployment
-
-### 1. Build project
-```bash
-npm run build
-```
-
-### 2. Deploy dist folder ไปยัง web server
-
-### 3. ตั้งค่า environment variables บน production server
-
-## Maintenance
-
-### 1. Update dependencies
-```bash
-npm update
-```
-
-### 2. Run tests
-```bash
-npm test
-```
-
-### 3. Check for security vulnerabilities
-```bash
-npm audit
-```
-
-## Contact
-สำหรับคำถามหรือปัญหาเกี่ยวกับ frontend:
-- Email: [your-email]
-- GitHub: [your-github]
-
-## Version History
-
-### v1.0.0 (2024-03-XX)
-- Initial release
-- Basic features implementation
-- Admin dashboard
-- Order management
-
-
 
 # React + Vite
 
