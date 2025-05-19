@@ -18,6 +18,7 @@ client/
 ├── src/
 │ ├── assets/ # รูปภาพ, icons และไฟล์ static อื่นๆ
 │ ├── components/ # Reusable components
+| ├── data/ # mock data
 │ ├── layouts/ # Layout components
 │ ├── pages/ # หน้าเว็บต่างๆ
 │ │ ├── admin/ # หน้าสำหรับ admin
@@ -26,8 +27,39 @@ client/
 │ ├── routes/ # การกำหนดเส้นทาง
 │ ├── store/ # State management (Zustand)
 │ ├── App.jsx # Root component
+│ ├── config.js # Change between real data and mock data
 │ └── main.jsx # Entry point
 ```
+
+## การใช้งาน Mock Data
+ระบบรองรับการใช้งานทั้งกับ backend จริงและ mock data โดยสามารถสลับได้ผ่านไฟล์ `config.js`:
+
+```javascript
+// src/config.js
+export const config = {
+  useMockData: true,  // true = ใช้ mock data, false = ใช้ backend จริง
+  apiUrl: 'http://localhost:5001/api'
+};
+```
+
+### Mock Users
+เมื่อเปิดใช้งาน mock data (`useMockData: true`) สามารถใช้บัญชีต่อไปนี้:
+
+เพิ่มเติม ส่วนของ Admin ยังไม่ได้ทำ ยังเข้าใช้ไม่ได้อยู่ครับ
+
+1. บัญชี Admin:
+   - Email: admin@example.com
+   - Password: admin123
+
+2. บัญชี User:
+   - Email: user@example.com
+   - Password: user123
+
+### ข้อดีของการใช้ Mock Data
+- ทดสอบระบบได้โดยไม่ต้องมี backend
+- พัฒนาและทดสอบฟีเจอร์ได้เร็วขึ้น
+- ไม่ต้องกังวลเรื่องการเชื่อมต่อกับ backend
+- เหมาะสำหรับการพัฒนาและทดสอบ UI/UX
 
 ## State Management
 ใช้ Zustand สำหรับจัดการ state หลักๆ 2 ส่วน:
