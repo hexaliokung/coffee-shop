@@ -45,8 +45,8 @@ const Shop = () => {
   }, []);
 
   const filteredProducts = products.filter((product) => {
-    if (activeFilter === "all") return true;
-    return product.type === activeFilter;
+    if (activeFilter === 1) return true;
+    return product.category_id === activeFilter;
   });
 
   const handleAddToCart = (product) => {
@@ -93,26 +93,26 @@ const Shop = () => {
     <div className="shop-container">
       <div className="shop-filter-container">
         <button
-          className={`shop-filter-btn${activeFilter === "all" ? " active" : ""}`}
-          onClick={() => setActiveFilter("all")}
+          className={`shop-filter-btn${activeFilter === 1 ? " active" : ""}`}
+          onClick={() => setActiveFilter(1)}
         >
           ทั้งหมด
         </button>
         <button
-          className={`shop-filter-btn${activeFilter === "hot coffee" ? " active" : ""}`}
-          onClick={() => setActiveFilter("hot coffee")}
+          className={`shop-filter-btn${activeFilter === 2 ? " active" : ""}`}
+          onClick={() => setActiveFilter(2)}
         >
           กาแฟร้อน
         </button>
         <button
-          className={`shop-filter-btn${activeFilter === "cold coffee" ? " active" : ""}`}
-          onClick={() => setActiveFilter("cold coffee")}
+          className={`shop-filter-btn${activeFilter === 3 ? " active" : ""}`}
+          onClick={() => setActiveFilter(3)}
         >
           กาแฟเย็น
         </button>
         <button
-          className={`shop-filter-btn${activeFilter === "special drinks" ? " active" : ""}`}
-          onClick={() => setActiveFilter("special drinks")}
+          className={`shop-filter-btn${activeFilter === 4 ? " active" : ""}`}
+          onClick={() => setActiveFilter(4)}
         >
           เครื่องดื่มพิเศษ
         </button>
