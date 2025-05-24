@@ -7,7 +7,7 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeFilter, setActiveFilter] = useState("all");
+  const [activeFilter, setActiveFilter] = useState(0);
   const addToCart = useCartStore((state) => state.addToCart);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const Shop = () => {
   }, []);
 
   const filteredProducts = products.filter((product) => {
-    if (activeFilter === 1) return true;
+    if (activeFilter === 0) return true;
     return product.category_id === activeFilter;
   });
 
@@ -93,26 +93,26 @@ const Shop = () => {
     <div className="shop-container">
       <div className="shop-filter-container">
         <button
+          className={`shop-filter-btn${activeFilter === 0 ? " active" : ""}`}
+          onClick={() => setActiveFilter(0)}
+        >
+          ทั้งหมด
+        </button>
+        <button
           className={`shop-filter-btn${activeFilter === 1 ? " active" : ""}`}
           onClick={() => setActiveFilter(1)}
         >
-          ทั้งหมด
+          กาแฟร้อน
         </button>
         <button
           className={`shop-filter-btn${activeFilter === 2 ? " active" : ""}`}
           onClick={() => setActiveFilter(2)}
         >
-          กาแฟร้อน
+          กาแฟเย็น
         </button>
         <button
           className={`shop-filter-btn${activeFilter === 3 ? " active" : ""}`}
           onClick={() => setActiveFilter(3)}
-        >
-          กาแฟเย็น
-        </button>
-        <button
-          className={`shop-filter-btn${activeFilter === 4 ? " active" : ""}`}
-          onClick={() => setActiveFilter(4)}
         >
           เครื่องดื่มพิเศษ
         </button>
